@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
 - Update dependency org.apache.maven.plugins:maven-invoker-plugin to v3.2.2
 - Update maven-plugin-plugin.version to v3.6.4
 - Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.1
+- Update dependency io.swagger:swagger-codegen-maven-plugin to v2.4.26
+- Update dependency org.springframework:spring-webmvc to v5.3.15
+- Update springfox.version to v2.10.5
 
 ## [0.17.1] - 2022-01-27
 
