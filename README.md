@@ -6,6 +6,10 @@ A Maven plugin which processes Swagger documents.
 [![Java CI with Maven](https://github.com/ngeor/yak4j-swagger-maven-plugin/actions/workflows/maven.yml/badge.svg)](https://github.com/ngeor/yak4j-swagger-maven-plugin/actions/workflows/maven.yml)
 [![javadoc](https://javadoc.io/badge2/com.github.ngeor/yak4j-swagger-maven-plugin/javadoc.svg)](https://javadoc.io/doc/com.github.ngeor/yak4j-swagger-maven-plugin)
 
+**Archived project!**
+This project is **archived** and will be **removed**.
+It has moved [here](https://github.com/ngeor/kamino/tree/master/plugins/yak4j-swagger-maven-plugin).
+
 ## Merge
 
 With the merge goal you can merge multiple Swagger documents together. The scope
