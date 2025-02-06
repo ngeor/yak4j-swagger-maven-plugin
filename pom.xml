@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.ngeor</groupId>
   <artifactId>yak4j-swagger-maven-plugin</artifactId>
-  <version>0.18.1</version>
+  <version>0.18.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
   <name>yak4j-swagger-maven-plugin</name>
   <description>yak shaving for Java: A Maven plugin which processes Swagger documents</description>
@@ -23,7 +23,7 @@
   <scm>
     <connection>scm:git:https://github.com/ngeor/yak4j-swagger-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:ngeor/yak4j-swagger-maven-plugin.git</developerConnection>
-    <tag>v0.18.1</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/ngeor/yak4j-swagger-maven-plugin</url>
   </scm>
   <distributionManagement>
