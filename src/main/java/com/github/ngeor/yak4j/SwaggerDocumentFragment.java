@@ -2,11 +2,11 @@ package com.github.ngeor.yak4j;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
@@ -22,7 +22,7 @@ public class SwaggerDocumentFragment {
      * @param data The data of the fragment.
      */
     public SwaggerDocumentFragment(Map<String, Object> data) {
-        this.data = data;
+        this.data = Objects.requireNonNull(data);
     }
 
     public int size() {
@@ -110,8 +110,7 @@ public class SwaggerDocumentFragment {
         Object value = data.get(key);
         if (value instanceof Map) {
             return getFragment(key);
-        } else if (value instanceof List) {
-            List list = (List) value;
+        } else if (value instanceof List list) {
             if (!list.isEmpty() && list.get(0) instanceof Map) {
                 return getFragments(key);
             }
@@ -122,32 +121,8 @@ public class SwaggerDocumentFragment {
         }
     }
 
-    /**
-     * Puts a value into the fragment.
-     *
-     * @param key   The key.
-     * @param value The value.
-     */
-    public void put(String key, Object value) {
-        if (!(value instanceof String)) {
-            throw new UnsupportedOperationException();
-        }
-
-        data.put(key, value);
-    }
-
-    /**
-     * Visits all keys (not recursively) with the given visitor.
-     * @param visitor The visitor function.
-     */
-    public void forEach(BiConsumer<String, Object> visitor) {
-        data.forEach((key, value) -> {
-            visitor.accept(key, get(key));
-        });
-    }
-
     public String[] keys() {
-        return data.keySet().toArray(new String[0]);
+        return data.keySet().toArray(String[]::new);
     }
 
     public void renameKey(String oldName, String newName) {
@@ -167,8 +142,8 @@ public class SwaggerDocumentFragment {
         map.forEach((key, value) -> {
             if (value instanceof Map) {
                 visitMap((Map<String, Object>) value, visitor);
-            } else if (value instanceof List) {
-                visitList((List) value, visitor);
+            } else if (value instanceof List list) {
+                visitList(list, visitor);
             } else {
                 Object newValue = visitor.apply(key, value);
                 if (newValue != value) {
@@ -183,8 +158,8 @@ public class SwaggerDocumentFragment {
             Object value = list.get(i);
             if (value instanceof Map) {
                 visitMap((Map<String, Object>) value, visitor);
-            } else if (value instanceof List) {
-                visitList((List) value, visitor);
+            } else if (value instanceof List list1) {
+                visitList(list1, visitor);
             } else {
                 Object newValue = visitor.apply(String.valueOf(i), value);
                 if (newValue != value) {
@@ -237,7 +212,7 @@ public class SwaggerDocumentFragment {
         try {
             swaggerWriter.write(this, byteArrayOutputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException(e);
         }
 
         return byteArrayOutputStream.toString();

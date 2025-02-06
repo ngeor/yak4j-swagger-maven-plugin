@@ -3,7 +3,6 @@ package com.github.ngeor.yak4j;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -28,14 +27,10 @@ public class SwaggerWriter {
 
     private void writeMap(YAMLGenerator generator, SwaggerDocumentFragment map) throws IOException {
         generator.writeStartObject();
-        map.forEach((key, value) -> {
-            try {
-                writeFieldName(generator, key);
-                writeObject(generator, value);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        for (String key : map.keys()) {
+            writeFieldName(generator, key);
+            writeObject(generator, map.get(key));
+        }
         generator.writeEndObject();
     }
 
@@ -49,22 +44,22 @@ public class SwaggerWriter {
     }
 
     private void writeObject(YAMLGenerator generator, Object value) throws IOException {
-        if (value instanceof SwaggerDocumentFragment) {
-            writeMap(generator, (SwaggerDocumentFragment) value);
-        } else if (value instanceof List) {
-            writeList(generator, (List) value);
-        } else if (value instanceof Boolean) {
-            generator.writeBoolean((Boolean) value);
-        } else if (value instanceof Integer) {
-            generator.writeNumber((Integer) value);
-        } else if (value instanceof Double) {
-            generator.writeNumber((double) value);
+        if (value instanceof SwaggerDocumentFragment fragment) {
+            writeMap(generator, fragment);
+        } else if (value instanceof List<?> list) {
+            writeList(generator, list);
+        } else if (value instanceof Boolean boolean1) {
+            generator.writeBoolean(boolean1);
+        } else if (value instanceof Integer integer) {
+            generator.writeNumber(integer);
+        } else if (value instanceof Double double1) {
+            generator.writeNumber(double1);
         } else {
             generator.writeString(value.toString());
         }
     }
 
-    private void writeList(YAMLGenerator generator, List list) throws IOException {
+    private void writeList(YAMLGenerator generator, List<?> list) throws IOException {
         generator.writeStartArray();
         for (Object value : list) {
             writeObject(generator, value);
