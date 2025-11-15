@@ -1,35 +1,53 @@
 # Changelog
-
 All notable changes to this project will be documented in this file.
 
-## [0.18.0](https://github.com/ngeor/kamino/compare/plugins/yak4j-swagger-maven-plugin/v0.17.2...plugins/yak4j-swagger-maven-plugin/v0.18.0) - 2024-02-27
-
-### Fixes
-
-* Upgrading libraries to Java 17
+## [0.18.2] - 2025-11-15
 
 ### Miscellaneous Tasks
 
-* Delete old .github and scripts folders
-* Keeping only root .editorconfig, deleting the rest
-* Keeping only root .gitignore, deleting the rest
-* Upgrade to latest parent pom
-* Upgraded to latest parent pom
-* Use `com.github.ngeor:java` as the parent pom everywhere
-* Switch to snapshot version of parent pom
-* Using Java 17 instanceof
-* Do not wrap IOException into a RuntimeException
+- Publish to Central Maven
 
-### Dependencies
+## [0.18.1] - 2025-02-06
 
-* Upgraded parent pom
+### Features
 
-## [0.17.2] - 2024-01-28
+- Use tag based release workflow
 
 ### Miscellaneous Tasks
 
-* Add 'plugins/yak4j-swagger-maven-plugin/' from commit '98fa7082924d2360cd0f3be25e8ec5c08532c304'
-* Adjusted imported code
+- Updated copyright year in LICENSE
+- Updating parent from 2.1.0 to 2.4.0
+- Updating parent from 2.4.0 to 3.1.1
+- Update dependency org.apache.maven.plugins:maven-invoker-plugin to v3.2.2
+- Update maven-plugin-plugin.version to v3.6.4
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.1
+- Update springfox.version to v2.10.5
+- Update dependency org.springframework:spring-webmvc to v5.3.15
+- Update dependency io.swagger:swagger-codegen-maven-plugin to v2.4.26
+- Update dependency org.springframework:spring-webmvc to v5.3.16
+- Update springfox.version to v3
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.2
+- Update maven-core.version to v3.8.5
+- Update dependency org.springframework:spring-webmvc to v5.3.17
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.2.1
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.2.2
+- Update dependency org.springframework:spring-webmvc to v5.3.18
+- Update dependency io.swagger:swagger-codegen-maven-plugin to v2.4.27
+- Update dependency org.springframework:spring-webmvc to v5.3.19
+- Update dependency org.springframework:spring-webmvc to v5.3.20
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.3
+- Update dependency org.apache.maven.plugins:maven-invoker-plugin to v3.3.0
+- Update maven-core.version to v3.8.6
+- Fix import order
+- Update dependency com.github.ngeor:java to v3.2.0
+- Update dependency org.springframework:spring-webmvc to v5.3.21
+- Update dependency org.springframework:spring-webmvc to v5.3.22
+- Update dependency io.swagger:swagger-codegen-maven-plugin to v2.4.28
+- Update dependency com.fasterxml.jackson.core:jackson-databind to v2.13.4
+- Update dependency com.github.ngeor:java to v3.3.0
+- Update dependency org.springframework:spring-webmvc to v5.3.23
+- Upgrade dependencies
+- Moved project back to its own repo
 
 ## [0.17.1] - 2022-01-27
 
